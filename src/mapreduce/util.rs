@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Eq, PartialEq, Serialize, Deserialize)]
+#[derive(Debug, Eq, PartialEq, PartialOrd, Ord, Serialize, Deserialize)]
 pub struct KeyValue {
     pub key: String,
     pub value: String,
@@ -11,6 +11,3 @@ impl KeyValue {
         KeyValue { key, value }
     }
 }
-
-pub type MapFn = fn(&str, &str) -> Vec<KeyValue>;
-pub type ReduceFn = fn(&str, Vec<&str>) -> String;
